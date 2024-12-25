@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: #0c0c1d;
+    color: #ffffff;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.stars,
+.twinkling {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.stars {
+    background: #000 url('https://i.imgur.com/YKY28eT.png') repeat top center;
+    z-index: -2;
+}
+
+.twinkling {
+    background: transparent url('https://i.imgur.com/XYMF4ca.png') repeat top center;
+    z-index: -1;
+    animation: move-twink-back 200s linear infinite;
+}
+
+@keyframes move-twink-back {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    width: 600px;
+}
+
+.message {
+    font-size: 3rem;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.5s, transform 0.5s;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .message {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .message {
+        font-size: 1.5rem;
+    }
+}
+
+.message.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.message.hidden {
+    display: none;
+}
+
+#message1 {
+    animation: popOut 1s ease-in-out;
+    color: #ff6b6b;
+}
+
+@keyframes popOut {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+#message2 {
+    color: #4ecdc4;
+}
+
+#message3 {
+    color: #f7fff7;
+}
+
+.emoji {
+    font-size: 4rem;
+    margin-top: 20px;
+    animation: rotate3D 3s infinite linear;
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .emoji {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .emoji {
+        font-size: 2.5rem;
+    }
+}
+
+@keyframes rotate3D {
+    0% {
+        transform: rotate3d(0, 1, 0, 0deg);
+    }
+
+    100% {
+        transform: rotate3d(0, 1, 0, 360deg);
+    }
+}
